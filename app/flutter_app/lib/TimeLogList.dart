@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/TimeLog.dart';
 
 class TimeLogList extends StatefulWidget {
   @override
@@ -6,8 +7,15 @@ class TimeLogList extends StatefulWidget {
 }
 
 class _TimeLogListState extends State<TimeLogList> {
+  List<TimeLog> _timeLogs = [];
+
+  _buildTimeLog() {}
+
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return ListView.builder(
+      itemBuilder: _buildTimeLog(),
+      itemCount: _timeLogs.length,
+    );
   }
 }

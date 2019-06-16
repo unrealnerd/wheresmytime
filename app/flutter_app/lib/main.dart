@@ -8,11 +8,9 @@ class TimeLogApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
-        title: 'Time Log',
-        home: Scaffold(
-            appBar: AppBar(title: Text("Where's My Time")),
-            body: TimeLogList()
-    ),
+      title: 'Time Log',
+      home: Scaffold(
+          appBar: AppBar(title: Text("Where's My Time")), body: TimeLogList()),
     );
   }
 }
