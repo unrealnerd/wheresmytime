@@ -9,8 +9,7 @@ class TimeLogApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return new MaterialApp(
       title: 'Time Log',
-      home: Scaffold(
-          appBar: AppBar(title: Text("Where's My Time")), body: TimeLogList()),
+      home: TimeLogList(),
     );
   }
 }
