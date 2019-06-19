@@ -1,6 +1,5 @@
-// Import MaterialApp and other widgets which we can use to quickly create a material app
 import 'package:flutter/material.dart';
-import 'package:flutter_app/TimeLogList.dart';
+import 'package:flutter_app/time_log_list.dart';
 
 void main() => runApp(new TimeLogApp());
 
@@ -9,7 +8,7 @@ class TimeLogApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return new MaterialApp(
       title: 'Time Log',
-      home: TimeLogList(),
+      home: TimeLogListScreen(),
     );
   }
 }
