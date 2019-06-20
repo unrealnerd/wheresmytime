@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/time_log_entry.dart';
 import 'package:flutter_app/new_time_log_dailog.dart';
+import 'package:flutter_app/time_log_list.dart';
 
 class TimeLogListScreen extends StatefulWidget {
   @override
@@ -8,7 +9,7 @@ class TimeLogListScreen extends StatefulWidget {
 }
 
 class _TimeLogListScreenState extends State<TimeLogListScreen> {
-  List<TimeLogEntry> _timeLogs = [];
+  final List<TimeLogEntry> _timeLogs = [];
 
   _addTimeLog() async {
     final timeLogEntry = await showDialog<TimeLogEntry>(
@@ -23,24 +24,13 @@ class _TimeLogListScreenState extends State<TimeLogListScreen> {
       });
     }
   }
-
-  Widget _buildTimeLogEntry(BuildContext context, int index) {
-    final item = _timeLogs[index];
-
-    return Card(
-        child: ListTile(
-      title: Text(item.task),
-      trailing: Icon(Icons.play_arrow),
-    ));
-  }
-
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(title: Text("Where's My Time")),
-        body: ListView.builder(
-          itemBuilder: _buildTimeLogEntry,
-          itemCount: _timeLogs.length,
+        body: TimeLogList(
+          timeLogs: _timeLogs,
         ),
         floatingActionButton: FloatingActionButton(
           child: Icon(Icons.add),
