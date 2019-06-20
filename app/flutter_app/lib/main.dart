@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/time_log_list.dart';
+import 'package:flutter_app/time_log_list_screen.dart';
 
 void main() => runApp(new TimeLogApp());
 
