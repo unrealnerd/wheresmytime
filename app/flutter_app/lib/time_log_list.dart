@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/timer.dart';
 import 'time_log_entry.dart';
 
 class TimeLogList extends StatelessWidget {
   TimeLogList({@required this.timeLogs});
 
-  List<TimeLogEntry> timeLogs;
+  final List<TimeLogEntry> timeLogs;
 
   Widget _buildTimeLogEntry(BuildContext context, int index) {
     final item = timeLogs[index];
@@ -12,7 +13,7 @@ class TimeLogList extends StatelessWidget {
     return Card(
         child: ListTile(
       title: Text(item.task),
-      trailing: Icon(Icons.play_arrow),
+      subtitle: TimerWidget(),      
     ));
   }
 
