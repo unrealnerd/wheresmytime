@@ -4,7 +4,7 @@ This application will keep track of the time spent on each activity, So that we 
 
 Here is the Home page,
 
-[homepage](./screenshots/wheresmytimehomepage.png)
+![homepage](./screenshots/wheresmytimehomepage.png)
 
 ## TODO
 * [ ] Select an appropriate DB 
