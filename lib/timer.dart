@@ -14,6 +14,7 @@ class TimerWidget extends StatefulWidget {
 class TimerState extends State<TimerWidget> {
   Timer timer;
   final Stopwatch stopwatch;
+  bool showPlayButton = true;
 
   TimerState({this.stopwatch}) {
     timer = new Timer.periodic(new Duration(milliseconds: 30), callback);
@@ -28,29 +29,42 @@ class TimerState extends State<TimerWidget> {
   void start() {
     setState(() {
       stopwatch.start();
+      showPlayButton = false;
     });
   }
 
   void stop() {
     setState(() {
       stopwatch.stop();
+      showPlayButton = true;
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    final TextStyle timerTextStyle =
-        const TextStyle(fontSize: 30.0, fontFamily: "Open Sans");
     String formattedTime =
         TimerTextFormatter.format(stopwatch.elapsedMilliseconds);
     return Row(
       children: <Widget>[
         Expanded(child: Text(formattedTime)),
-        IconButton(
-            icon: Icon(Icons.play_arrow),
-            onPressed: () {
-              start();
-            })
+        Visibility(
+            visible: showPlayButton,
+            child: IconButton(
+                icon: Icon(
+                  Icons.play_arrow,
+                  color: Colors.green,
+                  size: 40,
+                ),
+                onPressed: () {
+                  start();
+                })),
+        Visibility(
+            visible: !showPlayButton,
+            child: IconButton(
+                icon: Icon(Icons.pause, color: Colors.red, size: 40),
+                onPressed: () {
+                  stop();
+                }))
       ],
     );
   }

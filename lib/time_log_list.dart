@@ -12,7 +12,7 @@ class TimeLogList extends StatelessWidget {
 
     return Card(
         child: ListTile(
-      title: Text(item.task),
+      title: Text(item.task, style: Theme.of(context).textTheme.headline),
       subtitle: TimerWidget(),      
     ));
   }
