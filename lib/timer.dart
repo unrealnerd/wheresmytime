@@ -46,7 +46,19 @@ class TimerState extends State<TimerWidget> {
         TimerTextFormatter.format(stopwatch.elapsedMilliseconds);
     return Row(
       children: <Widget>[
-        Expanded(child: Text(formattedTime)),
+        Expanded(
+            child: Container(
+                alignment: Alignment.center,
+                child: Opacity(
+                  child: Text(
+                    formattedTime,
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.grey,
+                        fontSize: 30),
+                  ),
+                  opacity: 0.5,
+                ))),
         Visibility(
             visible: showPlayButton,
             child: IconButton(
